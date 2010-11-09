@@ -1,0 +1,34 @@
+Signal Monitor is an android app and a cross platform desktop app that displays your phone's 
+signal strength and data transmission state icons in your computer's system tray area.
+This is useful while tethered so that you can monitor your network status while the 
+phone is in your pocket or bag.
+
+The android app is written in Java and the client is written in Python with pyQt.
+The programs were developed on a linux box but they should be able to compile and run anywhere
+with a Java compiler, android sdk and python + pyqt.
+
+Instructions for building on Linux:
+
+cd android
+ant debug
+
+This creates an apk file in the bin directory: SignalMonitor-debug.apk.
+You can copy that to your phone and install it, or you can install with adb:
+
+sudo adb install bin/SignalMonitor-debug.apk
+
+Now start your tethering session on the phone and computer.
+
+On the phone you just start the app and you will see the debugging output.
+You can exit the app and it will stay running as a service.
+
+On the Linux system, you then start the desktop app:
+
+cd ../qt
+./signalmonitor.py
+
+Automatic server address means that the desktop app will connect to the default gateway.
+This should be the default configuration for wifi tethering.
+Pressing OK should start the client and you should see the icons in your status bar.
+
+

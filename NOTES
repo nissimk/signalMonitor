@@ -1,0 +1,27 @@
+Signal Strength   
+
+Mode (1x/3G, Bars, Params)
+3G, 4: 99 -1 -69 -75 -4 1 7 cdma
+3G, 3: 99 -1 -80 -80 -4 1 6 cdma
+3G, 3: 99 -1 -61 -70 -3 -1 6 cdma
+3G, 3: 99 -1 -120 -160 -8 -1 6 cdma
+3G, 2: 99 -1 -112 -65 -9 -1 4 cdma
+3G, 2: 99 -1 -120 -160 -19 -1 4 cdma
+3G, 2: 99 -1 -120 -160 -63 -1 1 cdma
+1X, 1: 99 -1 -98 -85 -1 -1 -1 cdma
+1X, 2: 99 -1 -93 -75 -1 -1 -1 cdma
+
+
+if last number >= 0, divide by 2 ad round for number of 3g bars.
+in 1x, 3rd number < -100 is 0 bars
+  -100 - -97 is 1 bar
+  -96 - -87 is 2 bars
+  -86 - -77 is 3 bars
+  -76 and up is 4 bars
+
+getDefaultGateway:
+  run route -n on linux parse out default gateway -- route -n|grep UG|awk '{print $2}'
+  on windows route print
+  on MacOS/BSD netstat
+
+
